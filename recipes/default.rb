@@ -57,22 +57,6 @@ include_recipe 'eas-jenkins::_auth_os'
 
 jenkins_command 'login'
 
-jenkins_script 'setup authentication' do
-  command <<-EOH.gsub(/^ {4}/, '')
-    import jenkins.model.*
-    def instance = Jenkins.getInstance()
-
-    import hudson.security.*
-    def realm = new PAMSecurityRealm("sshd")
-    instance.setSecurityRealm(realm)
-
-    def strategy = new #{node['eas-jenkins']['AuthorizationStrategy']}()
-    instance.setAuthorizationStrategy(strategy)
-
-    instance.save()
-  EOH
-end
-
 %w(test_eas test2_eas).each do |job|
   xml = File.join(Chef::Config[:file_cache_path], "#{job}-config.xml")
 
