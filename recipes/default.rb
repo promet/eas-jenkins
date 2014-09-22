@@ -17,7 +17,6 @@
 # limitations under the License.
 #
 
-
 include_recipe 'jenkins::java'
 include_recipe 'jenkins::master'
 include_recipe 'git'
@@ -35,9 +34,10 @@ jenkins_user 'chef' do
   public_keys [public_key]
 end
 
-
 # Set the private key on the Jenkins executor
 ruby_block 'set private key' do
+  # Note: leave this line as is will not work with preferred syntax
+  # Ignore Foodcritic FC001 warning
   block { node.run_state[:jenkins_private_key] = private_key }
 end
 
@@ -68,4 +68,3 @@ jenkins_command 'login'
     config xml
   end
 end
-

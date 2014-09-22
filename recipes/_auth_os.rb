@@ -1,4 +1,4 @@
-
+#
 # Cookbook Name:: eas-jenkins
 # Recipe:: default
 #
@@ -17,7 +17,6 @@
 # limitations under the License.
 #
 
-
 jenkins_script 'setup authentication' do
   command <<-EOH.gsub(/^ {4}/, '')
     import jenkins.model.*
@@ -33,4 +32,3 @@ jenkins_script 'setup authentication' do
     instance.save()
   EOH
 end
-
