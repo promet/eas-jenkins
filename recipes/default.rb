@@ -58,10 +58,8 @@ ruby_block 'set private key' do
 end
 
 jenkins_users = data_bag('jenkins_users')
-Chef::Log.info("Juser: #{jenkins_users}")
 jenkins_users.each do |juser|
   jenkins_user = data_bag_item('jenkins_users', juser)
-  Chef::Log.info("Juser: #{juser}")
   jenkins_user juser do
     full_name jenkins_user['full_name']
     email jenkins_user['email']
