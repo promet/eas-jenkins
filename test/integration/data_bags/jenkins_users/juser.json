@@ -1,0 +1,5 @@
+{
+  "id": "juser",
+  "password": "jpass",
+  "ssh_keys": [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCoK+g8NjBJqZ2BmfxyLyZXebnwmVAeKdviwlNDq8oU4aypiopWOrHFYVnMFfM52gGJPdqBgB6Pu7zUXie0jY2QqxjSKhkuMJcw+C2cly407XWzwaABzHPtjMl0CPLOrxcFy6VPwLyBfHb9FqBlD2Zd8mP9Rrp8Lu4ybWOi6zooxccpGTyNQilWsJ0wxWgGpvrygUS1Mb6Iz8eeAq2saNJqPKZ4inmt5y0wT8BiYYPIGnVLdJ1j1Z/ZNQuuHTb2XSiepsRQIzMIukvZx9/RwnDQ6DStt5ylaYMrmgJxMQIfd3unwSjSaPRNyEetrXoKJJJ9E5zi0F9Lc4CZiDtB8HCJ" ]
+}
