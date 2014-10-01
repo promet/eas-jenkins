@@ -71,13 +71,9 @@ end
 
 node['eas-jenkins']['plugins'].each do |plugin|
   jenkins_plugin plugin do
+    source node['eas-jenkins'][plugin]['source'] if node['eas-jenkins'].has_key?(plugin)
     notifies :restart, 'service[jenkins]'
   end
-end
-
-jenkins_plugin node['eas-jenkins']['chef-client']['name'] do
-  source node['eas-jenkins']['chef-client']['source']
-  notifies :restart, 'service[jenkins]'
 end
 
 include_recipe 'eas-jenkins::_auth_basic'

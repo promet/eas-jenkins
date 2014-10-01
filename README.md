@@ -7,7 +7,7 @@ Bootstrapping a single jenkins CI instance for EAS infrastructure project. Sets 
 - Ubuntu 14.04 (may work on other versions of Ubuntu, but target release is 14.04)
 
 ## Attributes
-Currently this cookbook requires a jenkins version 1.555 due to an [issue in Jenkins CLI](https://issues.jenkins-ci.org/browse/JENKINS-22346) with newer versions. On Debian based operating systems the use of the WAR based installing is therefore necessary. 
+Currently this cookbook requires a jenkins version 1.555 due to an [issue in Jenkins CLI](https://issues.jenkins-ci.org/browse/JENKINS-22346) with newer versions. On Debian based operating systems the use of the WAR based installing is therefore necessary.
 
 ```rb
 default['eas-jenkins']['jenkins_master'] = 'chef'
@@ -17,12 +17,11 @@ default['eas-jenkins']['jenkins_user'] = 'root'
 default['eas-jenkins']['jenkins_group'] = 'root'
 default['eas-jenkins']['AuthorizationStrategy'] = 'FullControlOnceLoggedInAuthorizationStrategy'
 # installable software plugins
-default['eas-jenkins']['plugins'] = ['ec2', 'chef-identity', 'email-ext', 'ruby-runtime',
+default['eas-jenkins']['plugins'] = ['ec2', 'chef-identity', 'chef-plugin', 'email-ext', 'ruby-runtime',
                                      'git-client', 'git-parameter', 'git', 'github-api', 'github',
                                      'ghprb', 'gitlab-plugin', 'phing', 'repo', 'token-macro']
 
-default['eas-jenkins']['chef-client']['name'] = 'chef-plugin'
-default['eas-jenkins']['chef-client']['source'] = 'http://repo.jenkins-ci.org/releases/org/jenkins-ci/ruby-plugins/chef/0.1.1/chef-0.1.1.hpi'
+default['eas-jenkins']['chef-plugin']['source'] = 'http://repo.jenkins-ci.org/releases/org/jenkins-ci/ruby-plugins/chef/0.1.1/chef-0.1.1.hpi'
 
 default['eas-jenkins']['jobs'] = ['test_eas', 'test2_eas', 'eas-defaultd7', 'test_eas_demosite']
 ```
@@ -53,7 +52,7 @@ Plugins are added to the jenkins configuration via the `['eas-jenkins']['plugins
 ### Adding jobs
 
 Similar to the way jenkins plugin are added to the configuration, build jobs can be added to the initial configuration.
-In addition to adding the job name to the list a `config.xml` file need to get added to `files/default/` directory of the cookbook for each job. The following naming convention is implemented - a `JOBNAME-config.xml` relates to a job named `JOBNAME`. 
+In addition to adding the job name to the list a `config.xml` file need to get added to `files/default/` directory of the cookbook for each job. The following naming convention is implemented - a `JOBNAME-config.xml` relates to a job named `JOBNAME`.
 
 
 ### eas-jenkins::default
